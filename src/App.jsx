@@ -5,7 +5,7 @@ import {fetchTodos, createTodo, updateTodo, toggleTodo, deleteTodo} from './api'
 function App() {
   const [todos, setTodos] = useState([]);
   const [text, setText] = useState('');
-  const [loading, setLoading] = useState('');
+  const [loading, setLoading] = useState(false);
   const [q, setQ] = useState('');
 
   async function load(){
@@ -75,6 +75,16 @@ function App() {
           style={{ flex: 1, padding: 10, border: '1px solid #ccc', borderRadius: 8 }}
         />
         <button type='submit' style={{ padding: '10px 14px', borderRadius: 8}}>Add</button>
+      </form>
+
+      <form onSubmit={handleSearch} style={{display: 'flex', gap:8, marginBottom: 16}}>
+        <input
+          value={q}
+          onChange={e => setQ(e.target.value)}
+          placeholder='Search todos...'
+          style={{ flex: 1, padding: 10, border: '1px solid #ccc', borderRadius: 8}}
+          />
+          
       </form>
     </div>
   )
