@@ -62,7 +62,7 @@ function App() {
     setLoading(true);
 
     try {
-      const res = await fetch(`http://localhost:3000/api/todos?q=${encodeURIComponent(q)}`);
+      const res = await fetch(`https://mongoose-todo.onrender.com/api/todos?q=${encodeURIComponent(q)}`);
       const data = await res.json();
       // Filter todos on the client side as well, in case the backend doesn't filter
       const filtered = Array.isArray(data)
